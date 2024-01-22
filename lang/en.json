@@ -1,0 +1,18 @@
+{
+    "h1": "Iteca - participant cabinet",
+    "ui": {
+        "login": "Login"
+    },
+    "login": {
+        "title": "Participant Cabinet Login",
+        "placeholder": {
+            "email": "Email Address",
+            "password": "Password"
+        },
+        "error": {
+            "email": "Please specify Email Address",
+            "password": "Please specify Password"
+        },
+        "show-pass": "Show Password"
+    }
+}

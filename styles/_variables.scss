@@ -1,0 +1,34 @@
+@use "sass:math";
+
+// GUI colors
+$black:           #000000;
+$black-primary:   #1c1819;
+$gray:            #888b94;
+$gray-lightest:   #d4d4da;
+$white-darkest:   #f2f2f3;
+$white:           #ffffff;
+$blue-primary:    #2a81dd;
+$blue-darker:     #0066cc;
+$red:             #ff3333;
+
+$disabled:        #f4f3f3;
+$text-color:      #1c1819;
+
+// Shadow
+$box-shadow-primary: 0 5px 10px 0 rgba($black-primary, 0.15);
+
+// Font Weight
+$f-weight-regular: 400;
+$f-weight-semi-bold: 600;
+$f-weight-bold: 700;
+$f-weight-extra-bold: 800;
+
+// Radius
+$radius:          4px;
+$radius-medium:   8px;
+$radius-large:    16px;
+
+$app-max-width:   768px;
+
+// Font Family
+$font-family-base: 'Open Sans', sans-serif;

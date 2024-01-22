@@ -1,0 +1,13 @@
+/* Animation: fade */
+.fade-enter-active {
+    transition: opacity 0.3s ease 0.15s;
+}
+
+.fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+    position: absolute;
+    opacity: 0;
+}
