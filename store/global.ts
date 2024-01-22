@@ -7,7 +7,6 @@ import type { GlobalStoreState } from '@/types/Store';
 export const useGlobalStore = defineStore('global', {
     state: (): GlobalStoreState => ({
         loading: false,
-        isAuth:  false,
     }),
     actions: {
         /**
@@ -23,15 +22,6 @@ export const useGlobalStore = defineStore('global', {
         stopLoading() {
             this.loading = false;
         },
-
-        /**
-         * Установить флаг авторизации
-         *
-         * @param {boolean} bool - true/false
-         */
-        setAuthFlag(bool: boolean) {
-            this.isAuth = bool;
-        }
     }
 });
 
