@@ -13,46 +13,54 @@ const isShowSuggests = ref<boolean>(false);
 /**
  * Отображает язык в интерфейсе
  *
- * @param {Object<LocaleObject>>} item - объект локали
- * @returns первые 3 буквы локали или его код
+ * @param {Object<LocaleObject>} item - объект локали
  */
-const getLocaleDisplayName = (item: LocaleObject) => {
-    const maxLength = 3;
-
-    return item.name?.slice(0, maxLength) ?? item.code;
-};
+const getLocaleDisplayName = (item: LocaleObject) => item.name;
 
 /**
- * Показать/Скрыть список опций
+ * Отобразить/Скрыть опции
  *
- * @param {boolean} val
+ * @param {boolean} bool
  */
-const toggleOptions = (val: boolean) => {
-    isShowSuggests.value = val;
+const toggleOptions = (bool: boolean) => {
+    isShowSuggests.value = bool;
 };
 </script>
 
 <template>
-    <div class="login-lang-select">
+    <div class="lang-select">
         <label
-            tabindex="0"
-            for="login-lang-select"
-            class="login-lang-select__label"
-            @focus="toggleOptions(true)"
-            @blur="toggleOptions(false)"
+            for="lang-select"
+            class="lang-select__label"
         >
+            <UiIcon
+                name="icon-global"
+                class="lang-select__label-icon"
+            />
+
             {{ lang[locale] }}
 
             <UiIcon
                 name="icon-arrow-down"
-                class="login-lang-select__label-icon"
+                :class="{
+                    'lang-select__label-icon': true,
+                    'lang-select__label-icon--active': isShowSuggests
+                }"
             />
+
+            <input
+                id="lang-select"
+                type="checkbox"
+                class="lang-select__field"
+                @focus="toggleOptions(true)"
+                @blur="toggleOptions(false)"
+            >
         </label>
 
         <transition name="fade">
             <ul
                 v-if="isShowSuggests"
-                class="login-lang-select__suggests"
+                class="lang-select__suggests"
             >
                 <nuxt-link
                     v-for="item in (locales as LocaleObject[])"
@@ -63,13 +71,13 @@ const toggleOptions = (val: boolean) => {
                 >
                     <li
                         :class="[
-                            'login-lang-select__suggests-item',
-                            { ['login-lang-select__suggests-item--active']: item.code === locale }
+                            'lang-select__suggests-item',
+                            { ['lang-select__suggests-item--active']: item.code === locale }
                         ]"
                     >
                         <a
                             :href="href"
-                            class="login-lang-select__suggests-item-link"
+                            class="lang-select__suggests-item-link"
                             @click="navigate"
                         >
                             {{ getLocaleDisplayName(item) }}
@@ -82,26 +90,35 @@ const toggleOptions = (val: boolean) => {
 </template>
 
 <style lang="scss">
-.login-lang-select {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    width: 100%;
-    max-width: 120px;
-
+.lang-select {
     &__label {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 8px;
         width: 100%;
-        padding: 4px 8px;
-        font-size: 16px;
-        font-weight: $f-weight-semi-bold;
-        line-height: 24px;
+        min-width: 140px;
+        padding: 8px 4px;
+        font-size: 14px;
+        font-weight: $f-weight-regular;
+        line-height: 20px;
         border-radius: $radius;
-        border: 1px solid rgba($black-primary, 0.2);
-        color: $text-color;
+        border: 1px solid $gray-lightest;
+        background-color: $white-darkest;
+        color: $gray-darker;
         cursor: pointer;
+    }
+
+    &__label-icon {
+        transition: transform 0.3s ease;
+
+        &--active {
+            transform: rotate(-180deg);
+        }
+    }
+
+    &__field {
+        @include visually-hidden();
     }
 
     &__suggests {
@@ -111,21 +128,22 @@ const toggleOptions = (val: boolean) => {
         top: calc(100% + 8px);
         width: 100%;
         border-radius: $radius;
-        border: 1px solid rgba($black-primary, 0.2);
+        background-color: $white;
+        box-shadow: 0 2px 5px 0 rgba($black-primary, 0.15);
+        overflow: hidden;
     }
 
     &__suggests-item {
         padding: 8px;
-        border-top: 1px solid rgba($black-primary, 0.2);
+        transition: background 0.5s ease;
         cursor: pointer;
 
-        &:first-child {
-            border-top: none;
-        }
-
+        &--active,
         &:hover {
-            .login-lang-select__suggests-item-link {
-                color: $blue-primary;
+            background: $orange;
+
+            .lang-select__suggests-item-link {
+                color: $white;
             }
         }
     }
@@ -133,12 +151,11 @@ const toggleOptions = (val: boolean) => {
     &__suggests-item-link {
         display: inline-block;
         width: 100%;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: $f-weight-regular;
-        line-height: 24px;
+        line-height: 20px;
         text-decoration: none;
-        color: $text-color;
-        transition: color 0.3s ease;
+        color: $gray-darker;
     }
 }
 </style>

@@ -5,7 +5,9 @@ export const LANG = {
 };
 
 export default {
-    [LANG.RU]: 'Рус',
-    [LANG.EN]: 'Eng',
-    [LANG.KZ]: 'Каз',
+    [LANG.RU]: 'Pусский',
+    [LANG.EN]: 'English',
+    [LANG.KZ]: 'Қазақша',
 };
+
+

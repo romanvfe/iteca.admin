@@ -40,7 +40,7 @@ export default defineNuxtConfig({
                 locales: [
                     {
                         code: 'ru',
-                        name: 'Русский',
+                        name: 'Pусский',
                     },
                     {
                         code: 'kz',

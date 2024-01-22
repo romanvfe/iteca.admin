@@ -3,16 +3,40 @@
 // GUI colors
 $black:           #000000;
 $black-primary:   #1c1819;
-$gray:            #888b94;
-$gray-lightest:   #d4d4da;
-$white-darkest:   #f2f2f3;
-$white:           #ffffff;
 $blue-primary:    #2a81dd;
+$blue-darkest:    #00458a;
 $blue-darker:     #0066cc;
+$blue-light:      #34a2e9;
+$blue-lighter:    #d6ecfb;
+$payed-blue:      #e9f2fb;
+$gray:            #888b94;
+$gray-darker:     #414247;
+$gray-lighter:    #bbbec9;
+$gray-lightest:   #d4d4da;
+$white:           #ffffff;
+$white-darkest:   #f2f2f3;
+$white-darker:    #fafafa;
+$yellow:          #ffd313;
+$yellow-primary:  #ffdd61;
+$yellow-darker:   #ffc726;
+$yellow-lightest: #fde8a3;
+$payed-yellow:    #fffae7;
 $red:             #ff3333;
+$payed-red:       #ffeaea;
+$orange:          #ff7733;
+$green:           #64bd38;
+$payed-green:     #eff8eb;
+$green-darker:    #36a300;
 
 $disabled:        #f4f3f3;
 $text-color:      #1c1819;
+
+$gradient-white: linear-gradient(180deg, $white 0%, $white-darker 100%);
+$gradient-yellow: linear-gradient(180deg, $yellow-primary 0%, $yellow 100%);
+$gradient-blue: linear-gradient(180deg, $blue-primary 0%, #146FCF 100%);
+$gradient-red: linear-gradient(180deg, $red 0%, #E90B0B 100%);
+$gradient-green: linear-gradient(180deg, $green 0%, #45A815 100%);
+$gradient-orange: linear-gradient(180deg, #F73 0%, #FF6316 100%);
 
 // Shadow
 $box-shadow-primary: 0 5px 10px 0 rgba($black-primary, 0.15);
