@@ -1,3 +1,5 @@
+import { API_URL } from './config/config';
+
 /**
  * Конфигурация приложения
  *
@@ -27,7 +29,7 @@ export default defineNuxtConfig({
         },
     },
     runtimeConfig: {
-        apiBaseUrl: process.env.API_URL,
+        apiBaseUrl: API_URL,
         public:     {
             mode: process.env.MODE,
         },
