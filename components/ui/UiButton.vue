@@ -117,12 +117,12 @@ const component = computed(() => {
     text-decoration: none;
     outline: none;
     color: $white;
-    background: $blue-primary;
+    background: $orange-darker;
     transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 
     &:active,
     &:hover {
-        background: $blue-darker;
+        background: $orange;
         color: $white;
         box-shadow: none;
         text-decoration: none;
